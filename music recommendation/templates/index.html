@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mood Music Generator</title>
+</head>
+<body style="font-family: Arial; text-align:center; margin-top:50px; background-color: aquamarine;">
+    <h1>Mood Based Music Generator</h1>
+    <form method="POST">
+        <label>Enter Mood:</label>
+        <input type="text" name="mood" required>
+        <button type="submit">Generate</button>
+    </form>
+
+    {% if audio_file %}
+        <h2>Generated for Mood: "{{ mood }}"</h2>
+        <audio controls autoplay>
+            <source src="{{ url_for('static', filename='output.wav') }}" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+    {% endif %}
+</body>
+</html>
